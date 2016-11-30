@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+app.get('/rest/api/health/', (req, res) => {
+    res.send('alive and kicking\n')
+})
+
 app.get('/rest/api/simple/', (req, res) => {
     var params = { Bucket: 'claudia-hello-world-express-20161130', Key: 'sample.json'}
 
