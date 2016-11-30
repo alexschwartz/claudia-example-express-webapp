@@ -26,6 +26,26 @@ describe('Hello world Ajax express node.js app', function () {
         .get('/rest/api/health')
         .expect(200, done);
     });
+
+    it('responds to /hello', function testPath(done) {
+      request(server)
+        .get('/rest/api/hello')
+        .expect(200, done);
+    });
+
+    it('responds to /simple', function testPath(done) {
+      request(server)
+        .get('/rest/api/simple')
+        .expect(200, done);
+    });
+
+    it('responds to /sample', function testPath(done) {
+      request(server)
+        .get('/rest/api/sample')
+        .expect(200, done);
+    });
+
   });
+
 
 });
