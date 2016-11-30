@@ -9,19 +9,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/rest/api/simple/', (req, res) => {
-    var params = { Bucket: 'claudia-hello-world-express', Key: 'sample.js'}
+    var params = { Bucket: 'claudia-hello-world-express-20161130', Key: 'sample.json'}
 
     new AWS.S3().getObject(params, function(err, json_data) {
       if (!err) {
         var json = JSON.parse(new Buffer(json_data.Body).toString("utf8"));
         res.json(json);
       }
+      res.send("hello");
     })
 })
 
 app.get('/rest/api/sample/', (req, res) => {
    var s3 = new AWS.S3(); 
-    var params = { Bucket: 'claudia-hello-world-express', Key: 'sample.js'}
+    var params = { Bucket: 'claudia-hello-world-express', Key: 'sample.json'}
 
     s3.headObject(params, function (err, data) {
         if (err) {
@@ -52,7 +53,7 @@ app.get('/rest/api/sample/', (req, res) => {
 })
 
 app.get('/rest/api/hello/', (req, res) => {
-    res.sendFile(`${__dirname}/content/hello.js`)
+    res.sendFile(`${__dirname}/content/hello.json`)
 })
 
 // app.listen(3000) // <-- comment this line out from your app
