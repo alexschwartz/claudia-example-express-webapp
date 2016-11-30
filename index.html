@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-		<title>Serverless Express Example</title>
-    </head>
-    <body>
-        <h1>Hello from Express</h1>
-		<p>this page is served by Express, through 
-		<a href="https://www.npmjs.com/package/aws-serverless-express">aws-serverless-express</a> and 
-		<a href="https://claudiajs.com/tutorials/deploying-proxy-api.html">Claudia.JS Proxy API</a></p>
-    </body>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        $("#div1").load("/latest/rest/api/sample/");
+});
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+
+</body>
 </html>

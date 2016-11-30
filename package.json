@@ -4,7 +4,7 @@
   "description": "Example application for running a Node Express app on AWS Lambda using Amazon API Gateway.",
   "main": "lambda.js",
   "scripts": {
-    "deploy": "claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1",
+    "deploy": "claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1 --role lambda_s3_exec_role",
     "update": "claudia update",
     "generate-proxy": "claudia generate-serverless-express-proxy --express-module app"
   },
