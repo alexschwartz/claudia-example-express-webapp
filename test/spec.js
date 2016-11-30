@@ -1,20 +1,31 @@
 var request = require('supertest');
-describe('loading express', function () {
+describe('Hello world Ajax express node.js app', function () {
   var server;
   beforeEach(function () {
-    server = require('./server');
+    server = require('../app');
   });
   afterEach(function () {
-    server.close();
+//    server.close();
   });
+
   it('responds to /', function testSlash(done) {
   request(server)
     .get('/')
     .expect(200, done);
   });
-  it('404 everything else', function testPath(done) {
+
+  it('responds with 404 for everything else', function testPath(done) {
     request(server)
       .get('/foo/bar')
       .expect(404, done);
   });
+
+  describe('REST API /rest/api', function () {
+    it('responds to /health', function testPath(done) {
+      request(server)
+        .get('/rest/api/health')
+        .expect(200, done);
+    });
+  });
+
 });
