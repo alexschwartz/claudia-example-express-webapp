@@ -11,6 +11,43 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+var aws = require('knox').createClient({
+  key: '',
+  secret: '',
+  bucket: 'claudia-hello-world-express-20161130'
+})
+
+app.get('/image/:id', function (req, res, next) {
+
+  aws.get('/image/' + req.params.id)
+  .on('error', next)
+  .on('response', function (resp) {
+    if (resp.statusCode !== 200) {
+      var err = new Error()
+      err.status = 404
+      next(err)
+      return
+    }
+
+    res.setHeader('Content-Length', resp.headers['content-length'])
+    res.setHeader('Content-Type', resp.headers['content-type'])
+
+    if (req.fresh) {
+      res.statusCode = 304
+      res.end()
+      return
+    }
+
+    if (req.method === 'HEAD') {
+      res.statusCode = 200
+      res.end()
+      return
+    }
+
+    resp.pipe(res)
+  })
+})
+
 app.get('/rest/api/health/', (req, res) => {
     res.send('alive and kicking\n')
 })
