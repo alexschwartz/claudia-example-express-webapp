@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 })
 
 var aws = require('knox').createClient({
-  key: '',
-  secret: '',
+  key: 'image',
+  secret: 'my-secret',
   bucket: 'claudia-hello-world-express-20161130'
 })
 
