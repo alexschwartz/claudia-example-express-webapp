@@ -24,7 +24,8 @@ describe('Hello world Ajax express node.js app', function () {
     it('responds to /health', function testPath(done) {
       request(server)
         .get('/rest/api/health')
-        .expect(200, done);
+        .expect(200, done)
+        .expect('alive and kicking\n');
     });
 
     it('responds to /hello', function testPath(done) {
@@ -36,13 +37,9 @@ describe('Hello world Ajax express node.js app', function () {
     it('responds to /simple', function testPath(done) {
       request(server)
         .get('/rest/api/simple')
-        .expect(200, done);
-    });
-
-    it('responds to /sample', function testPath(done) {
-      request(server)
-        .get('/rest/api/sample')
-        .expect(200, done);
+        .expect(503, done)
+     //   .expect("Content-type",/json/);
+        .expect('bla');
     });
 
   });

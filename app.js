@@ -20,7 +20,7 @@ app.get('/rest/api/simple/', (req, res) => {
         var json = JSON.parse(new Buffer(json_data.Body).toString("utf8"));
         res.json(json);
       }
-      res.send("hello");
+      res.status(503).send("problem retrieving object from S3 - " + err);
     })
 })
 
