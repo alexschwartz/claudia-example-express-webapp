@@ -37,9 +37,8 @@ describe('Hello world Ajax express node.js app', function () {
     it('responds to /simple', function testPath(done) {
       request(server)
         .get('/rest/api/simple')
-        .expect(503, done)
-     //   .expect("Content-type",/json/);
-        .expect('bla');
+        .expect(200, done);
+    //    .expect("Content-type",/json/);
     });
 
   });
