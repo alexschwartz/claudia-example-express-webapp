@@ -17,12 +17,6 @@ app.get('/rest/api/health/', (req, res) => {
     res.send('alive and kicking\n')
 })
 
-app.get('/rest/api/simple/', (req, res) => {
-    var params = { Bucket: 'claudia-hello-world-express', Key: 'sample.js'}
-
-    serveObjectFromS3(params, res);
-})
-
 function serveObjectFromS3(params, res) {
     console.log("Serving file '" + params.Key + "' from S3 bucket '" + params.Bucket + "'");
     new AWS.S3().getObject(params, function(err, json_data) {
