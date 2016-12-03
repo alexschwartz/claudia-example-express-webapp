@@ -8,8 +8,13 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-app.get('/assests/css/sample.css', (req, res) => {
-    res.send(req);
+app.get('/assets/css', function (req, res) {
+    var url = req.url;
+    res.send(url);
+})
+
+app.get('/assets/css/sample.css', (req, res) => {
+    res.send('hello');
 })
 
 app.get('/rest/api/health/', (req, res) => {

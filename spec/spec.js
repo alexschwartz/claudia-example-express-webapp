@@ -4,15 +4,19 @@ describe('Hello world Ajax express node.js app', function () {
   beforeEach(function () {
     server = require('../app');
   });
-  afterEach(function () {
-//    server.close();
-  });
 
   it('responds to /', function testSlash(done) {
     request(server)
       .get('/')
       .expect(200, done);
   });
+
+  it('responds to /assets/css', function testSlash(done) {
+    request(server)
+      .get('/assets/css')
+      .expect(200, done);
+  });
+
 
   it('responds to /assets/css/sample.css', function testSlash(done) {
     request(server)
