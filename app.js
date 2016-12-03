@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
+app.get('/assests/css/sample.css', (req, res) => {
+    res.send(req);
+})
+
 app.get('/rest/api/health/', (req, res) => {
     res.send('alive and kicking\n')
 })
