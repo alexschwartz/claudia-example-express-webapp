@@ -4,14 +4,17 @@ const app = express()
 
 var AWS = require('aws-sdk');
 
+// GET CSS, js, etc under /assets
+app.use('/assets', express.static(__dirname + '/assets'));
+
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-app.get('/assets/:dir/:filename', (req, res) => {
+//app.get('/assets/:dir/:filename', (req, res) => {
 //    console.log('handling ' + req.path + ' by serving a file ');
-    res.sendFile(`${__dirname}/` + req.path)
-})
+//    res.sendFile(`${__dirname}/` + req.path)
+//})
 
 app.get('/rest/api/health/', (req, res) => {
     res.send('alive and kicking\n')
