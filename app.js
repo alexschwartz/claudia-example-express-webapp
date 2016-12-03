@@ -44,7 +44,7 @@ app.get('/rest/api/s3/:bucket', (req, res) => {
 })
 
 app.get('/rest/api/s3/:bucket/:filename', (req, res) => {
-    res.send("should serve the file '" + req.filename + "' from the bucket '" + req.bucket + "' from S3");
+    serveObjectFromS3({Bucket: req.params.bucket, Key: req.params.filename}, res);
 })
 
 app.listen(3000) // <-- comment this line out from your app
