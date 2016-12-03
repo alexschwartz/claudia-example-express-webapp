@@ -1,6 +1,6 @@
 {
-  "name": "claudia-express",
-  "version": "1.0.0",
+  "name": "claudia-example-express-webapp",
+  "version": "0.2.0",
   "description": "Example application for running a Node Express app on AWS Lambda using Amazon API Gateway.",
   "main": "lambda.js",
   "scripts": {
