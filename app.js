@@ -29,10 +29,6 @@ function serveObjectFromS3(params, res) {
     })
 }
 
-app.get('/rest/api/hello/', (req, res) => {
-    res.sendFile(`${__dirname}/content/hello.json`)
-})
-
 app.get('/rest/api/s3/:bucket', (req, res) => {
     res.send("should serve list of entries in the bucket '" + req.bucket + "' from S3");
 })

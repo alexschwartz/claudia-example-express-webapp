@@ -46,7 +46,7 @@ describe('Hello world Ajax express node.js app', function () {
     it('responds to /hello', function testPath(done) {
       request(server)
         .get('/rest/api/hello')
-        .expect(200, done);
+        .expect(404, done);
     });
 
     describe('REST API /rest/api/s3', function () {
