@@ -8,12 +8,8 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-app.get('/assets/css', function (req, res) {
-    var url = req.url;
-    res.send(url);
-})
-
-app.get('/assets/css/:filename', (req, res) => {
+app.get('/assets/:dir/:filename', (req, res) => {
+//    console.log('handling ' + req.path + ' by serving a file ');
     res.sendFile(`${__dirname}/` + req.path)
 })
 

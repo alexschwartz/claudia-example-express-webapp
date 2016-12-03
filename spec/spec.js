@@ -11,9 +11,9 @@ describe('Hello world Ajax express node.js app', function () {
       .expect(200, done);
   });
 
-  it('responds to /assets/css', function testSlash(done) {
+  it('responds to /assets/js/sample.js', function testSlash(done) {
     request(server)
-      .get('/assets/css')
+      .get('/assets/js/sample.js')
       .expect(200, done);
   });
 
