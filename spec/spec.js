@@ -58,6 +58,14 @@ describe('Hello world Ajax express node.js app', function () {
         done();
     });
 
+
+    describe('REST API /rest/api/s3', function () {
+      it('responds to /rest/api/s3/:bucket', function testPath(done) {
+        request(server)
+          .get('/rest/api/s3/mybucket')
+          .expect(200, done)
+      });
+    });
   });
 
 

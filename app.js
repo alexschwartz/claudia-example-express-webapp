@@ -34,6 +34,10 @@ app.get('/rest/api/hello/', (req, res) => {
     res.sendFile(`${__dirname}/content/hello.json`)
 })
 
+app.get('/rest/api/s3/:bucket', (req, res) => {
+    res.send("should serve bucket '" + req.bucket + "' from S3");
+})
+
 app.listen(3000) // <-- comment this line out from your app
 
 module.exports = app // export your app so aws-serverless-express can use it
