@@ -14,7 +14,7 @@ app.get('/assets/css', function (req, res) {
 })
 
 app.get('/assets/css/sample.css', (req, res) => {
-    res.send('hello');
+    res.sendFile(`${__dirname}/` + req.path)
 })
 
 app.get('/rest/api/health/', (req, res) => {
