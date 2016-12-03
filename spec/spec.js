@@ -23,6 +23,12 @@ describe('Hello world Ajax express node.js app', function () {
       .expect(200, done);
   });
 
+ it('responds to /assets/css/sample2.css', function testSlash(done) {
+    request(server)
+      .get('/assets/css/sample2.css')
+      .expect(200, done);
+  });
+
   it('responds with 404 for everything else', function testPath(done) {
     request(server)
       .get('/foo/bar')

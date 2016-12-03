@@ -13,7 +13,7 @@ app.get('/assets/css', function (req, res) {
     res.send(url);
 })
 
-app.get('/assets/css/sample.css', (req, res) => {
+app.get('/assets/css/:filename', (req, res) => {
     res.sendFile(`${__dirname}/` + req.path)
 })
 
