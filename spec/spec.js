@@ -49,13 +49,6 @@ describe('Hello world Ajax express node.js app', function () {
         .expect(200, done);
     });
 
-    it('responds to /simple', function testPath(done) {
-      request(server)
-        .get('/rest/api/simple')
-        .expect(404, done);
-    });
-
-
     describe('REST API /rest/api/s3', function () {
       it('repsons to /rest/api/s3/mybucket and serves the list of S3 files', function testPath(done) {
         request(server)
