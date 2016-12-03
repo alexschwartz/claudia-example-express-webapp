@@ -35,7 +35,11 @@ app.get('/rest/api/hello/', (req, res) => {
 })
 
 app.get('/rest/api/s3/:bucket', (req, res) => {
-    res.send("should serve bucket '" + req.bucket + "' from S3");
+    res.send("should serve list of entries in the bucket '" + req.bucket + "' from S3");
+})
+
+app.get('/rest/api/s3/:bucket/:filename', (req, res) => {
+    res.send("should serve the file '" + req.filename + "' from the bucket '" + req.bucket + "' from S3");
 })
 
 app.listen(3000) // <-- comment this line out from your app

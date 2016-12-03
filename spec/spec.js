@@ -60,9 +60,15 @@ describe('Hello world Ajax express node.js app', function () {
 
 
     describe('REST API /rest/api/s3', function () {
-      it('responds to /rest/api/s3/:bucket', function testPath(done) {
+      it('repsons to /rest/api/s3/mybucket and serves the list of S3 files', function testPath(done) {
         request(server)
           .get('/rest/api/s3/mybucket')
+          .expect(200, done)
+      });
+  
+     it('repsons to /rest/api/s3/claudia-hello-world-express/sample.json and serves the file from S3', function testPath(done) {
+        request(server)
+          .get('/rest/api/s3/claudia-hello-world-express/sample.json')
           .expect(200, done)
       });
     });
