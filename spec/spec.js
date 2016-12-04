@@ -50,16 +50,16 @@ describe('Hello world Ajax express node.js app', function () {
           .expect(200, done)
       });
   
-      it('repsons to /rest/api/s3/claudia-hello-world-express/sample.json and serves the file from S3', function testPath(done) {
+      it('repsons to /rest/api/s3/claudia-hello-world-express/sample-folder1/subfolder34/hello.json and serves the file from S3', function testPath(done) {
         request(server)
-          .get('/rest/api/s3/claudia-hello-world-express/sample.json')
+          .get('/rest/api/s3/claudia-hello-world-express/sample-folder1/subfolder34/hello.json')
           .expect(200, done)
           .expect("Content-type",/json/);
       });
 
-      xit('repsons to /rest/api/s3/claudia-hello-world-express/subfolder/sample.json and serves the file from S3', function testPath(done) {
+      it('repsons to /rest/api/s3/claudia-hello-world-express/sample.json and serves the file from S3', function testPath(done) {
         request(server)
-          .get('/rest/api/s3/claudia-hello-world-express/subfolder/sample.json')
+          .get('/rest/api/s3/claudia-hello-world-express/sample.json')
           .expect(200, done)
           .expect("Content-type",/json/);
       });

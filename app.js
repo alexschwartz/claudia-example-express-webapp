@@ -11,11 +11,6 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-//app.get('/assets/:dir/:filename', (req, res) => {
-//    console.log('handling ' + req.path + ' by serving a file ');
-//    res.sendFile(`${__dirname}/` + req.path)
-//})
-
 app.get('/rest/api/health/', (req, res) => {
     res.send('alive and kicking\n')
 })
