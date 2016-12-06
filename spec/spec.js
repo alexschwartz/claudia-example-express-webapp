@@ -52,22 +52,23 @@ describe('Hello world Ajax express node.js app', function () {
           .expect(200, done)
       });
 
-      it('repsons to /rest/api/s3/buckets/mybucket and serves the list of S3 files', function testPath(done) {
+      xit('repsons to /rest/api/s3/buckets/aleschwa-sandbox and serves the list of S3 files', function testPath(done) {
         request(server)
-          .get('/rest/api/s3/buckets/mybucket')
+          .get('/rest/api/s3/buckets/aleschwa-sandbox')
           .expect(200, done)
+          .expect("nice content");
       });
   
-      xit('repsons to /rest/api/s3/buckets/claudia-hello-world-express/files/sample-folder1/subfolder34/hello.json and serves the file from S3', function testPath(done) {
+      xit('repsons to /rest/api/s3/buckets/claudia-hello-world-express-20161130/files/sample-folder1/subfolder34/hello.json and serves the file from S3', function testPath(done) {
         request(server)
-          .get('/rest/api/s3/buckets/claudia-hello-world-express/files/sample-folder1/subfolder34/hello.json')
+          .get('/rest/api/s3/buckets/claudia-hello-world-express-20161130/files/sample-folder1/subfolder34/hello.json')
           .expect(200, done)
           .expect("Content-type",/json/);
       });
 
-      it('repsons to /rest/api/s3/buckets/claudia-hello-world-express/files/sample.json and serves the file from S3', function testPath(done) {
+      it('repsons to /rest/api/s3/buckets/claudia-hello-world-express-20161130/files/sample.json and serves the file from S3', function testPath(done) {
         request(server)
-          .get('/rest/api/s3/buckets/claudia-hello-world-express/files/sample.json')
+          .get('/rest/api/s3/buckets/claudia-hello-world-express-20161130/files/sample.json')
           .expect(200, done)
           .expect("Content-type",/json/);
       });

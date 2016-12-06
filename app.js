@@ -11,12 +11,6 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`)
 })
 
-var aws = require('knox').createClient({
-  key: 'image',
-  secret: 'my-secret',
-  bucket: 'claudia-hello-world-express-20161130'
-})
-
 app.get('/rest/api/health/', (req, res) => {
     res.send('alive and kicking\n')
 })
@@ -44,7 +38,16 @@ app.get('/rest/api/s3/buckets', (req, res) => {
 });
 
 app.get('/rest/api/s3/buckets/:bucket', (req, res) => {
-    res.send("should serve list of entries in the bucket '" + req.bucket + "' from S3");
+    var params = {
+        Bucket: rep.params.bucket
+    };
+    new AWS.S3().listObjects(params, function(err, data) {
+      if (!err) {
+        res.send(data);
+      } else {
+        res.status(503).send("problem retrieving object from S3 - " + err);
+      }
+    }); 
 })
 
 app.get('/rest/api/s3/buckets/:bucket/files/:filename', (req, res) => {
