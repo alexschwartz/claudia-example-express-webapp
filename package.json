@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha -R spec spec/spec.js",
     "deploy": "claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1 --role claudia-express-executor",
-    "update": "claudia update",
+    "redeploy": "claudia update",
+    "coverage": "istanbul cover _mocha  spec/spec.js",
     "generate-proxy": "claudia generate-serverless-express-proxy --express-module app"
   },
   "license": "Apache-2.0",
