@@ -5,16 +5,15 @@
   "main": "lambda.js",
   "scripts": {
     "test": "mocha -R spec spec/spec.js",
-    "deploy": "claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1 --role claudia-express-executor",
-    "redeploy": "claudia update",
+    "deploy": "claudia create --no-optional-dependencies --handler lambda.handler --deploy-proxy-api --region us-east-1 --role claudia-express-executor",
+    "redeploy": "claudia update --verbose --no-optional-dependencies",
     "coverage": "istanbul cover _mocha  spec/spec.js",
     "generate-proxy": "claudia generate-serverless-express-proxy --express-module app"
   },
   "license": "Apache-2.0",
   "dependencies": {
     "aws-serverless-express": "^1.2.0",
-    "express": "^4.14.0",
-    "knox": "^0.9.2"
+    "express": "^4.14.0"
   },
   "devDependencies": {
     "claudia": "^2.1.0",
